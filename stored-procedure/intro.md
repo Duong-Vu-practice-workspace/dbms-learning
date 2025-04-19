@@ -209,3 +209,31 @@ alter procedure....
 ```sql
 drop procedure <tên thủ tục>
 ```
+## 3.11: kiểu d ữ liệu cursor(con trỏ)
+### 3.11.1: giới thiệu cursor
+- kiểu dữ liệu cursor được sử dụng trong trường hợp tính toán trên tập bản ghi, nên nó cho phép định vị được bản ghi cần xử lý trong tập dữ liệu. cũng có thể lấy ra một hay nhiều bản ghi từ vị trí hiện hành trong tập dữ  liệu kết quả
+- cursor cũng cho phép cập nhật bản ghi trong tập dữ liệu tại vị trí cursor hiện hành. bên cạnh đó, bạn cũng có thể cho phép che dấu/hiển thị bản ghi trong tập dữ liệu
+- sql server cung cấp 2 phương thức để gọi cursor là t-sql và hàm database api
+-chú ý : 1 ứng dụng không nên lẫn lộn giữa 2 phương thức gọi cursor
+
+### 3.11.2: quá trình xử lý của cursor
+#### 3.11.2.1: khai báo cursor
+- khai báo cursor sử dụng t-sql có cú pháp như sau:
+```sql
+declare tên_cursor
+[insensitive | sensitive] [scroll | forward_only]
+cursor for câu_lệnh_select
+[for [read only | update] [of <tên_cột>]] 
+```
+- insensitive: cho phép định nghĩa 
+#### 3.11.2.2
+#### 3.11.2.3: lấy dữ liệu
+#### 3.11.2.4: duyệt bản ghi
+- để duyệt qua từng bản ghi trong cursor, sử dụng hàm @@fetch_status và phát biểu while. hàm @@fetch_status trả về giá trị 0 ứng với bản ghi lấy ra hợp lệ
+- phát biểu 
+#### 3.11.2.5: đóng và giải phóng bộ nhớ cho biến cursor
+- sau khi kết thúc làm việc với cursor, bạn cần khai báo để đóng cursor và giải phóng bộ nhớ đã cấp cho nó với cú pháp như sau:
+```sql
+CLOSE <tên_cursor>
+DEALLOCATE <tên_cursor>
+```
