@@ -21,3 +21,7 @@
 ## tạo người dùng csdl
 ## quản lý quyền trên đối tượng
 
+# bảo trì csdl
+## sao lưu dự phòng
+## khôi phục csdl
+
